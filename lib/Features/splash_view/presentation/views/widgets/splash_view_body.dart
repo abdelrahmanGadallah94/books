@@ -1,9 +1,35 @@
 import 'package:books/constants.dart';
-import 'package:books/core/utiles/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../home_view/presentation/view/home_view.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+
+    navigateToHome();
+  }
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,8 +37,40 @@ class SplashViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AppAssets.kLogoImage),
-        const Text(kSplashTitle,textAlign: TextAlign.center,),
+
+          AnimatedBuilder(
+              animation: slidingAnimation,
+              builder: (context, child) => SlideTransition(
+                position: slidingAnimation,
+                child: const Text(
+                  kSplashTitle,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+          ),
+
       ],
     );
+  }
+
+  // init sliding method
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: kDuration200);
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
+            .animate(animationController);
+    animationController.forward();
+  }
+
+  // navigate to home method
+  void navigateToHome() {
+    Future.delayed(kDuration200,() {
+      Get.to(
+              () => const HomeView(),
+          transition: Transition.fade,
+          duration: kTransitionDuration
+      );
+    },);
   }
 }
