@@ -2,7 +2,7 @@ import 'package:books/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../home_view/presentation/view/home_view.dart';
+import '../../../../home/presentation/view/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
