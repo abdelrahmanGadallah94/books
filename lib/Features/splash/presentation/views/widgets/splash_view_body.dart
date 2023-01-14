@@ -1,8 +1,7 @@
 import 'package:books/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../home/presentation/view/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -56,7 +55,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   // init sliding method
   void initSlidingAnimation() {
     animationController =
-        AnimationController(vsync: this, duration: kDuration200);
+        AnimationController(vsync: this, duration: kDuration2);
     slidingAnimation =
         Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
             .animate(animationController);
@@ -65,12 +64,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   // navigate to home method
   void navigateToHome() {
-    Future.delayed(kDuration200,() {
-      Get.to(
-              () => const HomeView(),
-          transition: Transition.fade,
-          duration: kTransitionDuration
-      );
+    Future.delayed(kDuration3,() {
+      // Get.to(
+      //         () => const HomeView(),
+      //     transition: Transition.fade,
+      //     duration: kTransitionDuration
+      // );
+
+      context.go(kHomePageRoute);
     },);
   }
 }

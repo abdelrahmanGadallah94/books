@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'Features/splash/presentation/views/splash_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
+import 'core/utils/app_router.dart';
 
 void main() {
   runApp(const BooksApp());
@@ -12,11 +12,12 @@ class BooksApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return  MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor
+        scaffoldBackgroundColor: kPrimaryColor,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)
       ),
     );
   }

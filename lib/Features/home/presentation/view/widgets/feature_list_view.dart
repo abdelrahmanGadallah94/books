@@ -9,11 +9,11 @@ class FeatureListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 245,
       margin: const EdgeInsets.only(top: 20),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemBuilder:(context, index) => const FeaturedItem(),
+        itemBuilder:(context, index) =>  const FeaturedItem(),
       ),
     );
   }

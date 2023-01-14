@@ -9,12 +9,18 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-       Column(
-          children: const [
-            HomeViewAppBar(),
-            HomeViewBody()
-          ],
-        ),
+      CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child:  Column(
+              children: const [
+                HomeViewAppBar(),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: HomeViewBody(),)
+        ],
+      ),
 
     );
   }
