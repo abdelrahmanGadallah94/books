@@ -10,11 +10,16 @@ const  kTransitionDuration = Duration(milliseconds: 500);
 const  kDuration3 = Duration(seconds: 3);
 const  kDuration2 = Duration(seconds: 2);
 
-const EdgeInsetsGeometry kMainPadding = EdgeInsets.only(left: 24,right: 24,top: 50);
+const EdgeInsetsGeometry kMainPadding = EdgeInsets.only(left: 24,right: 24,top: 10);
 
 const EdgeInsetsGeometry kHomeBody = EdgeInsets.only(left: 24,right: 24);
 
 const String  kGtSectraFine = 'GT Sectra Fine';
 
 const String  kHomePageRoute = '/homeView';
+
 const String  kBookDetailsPageRoute = '/bookDetailView';
+
+const String  kSearchPageRoute = '/searchView';
+
+const String  kHintTextSearch = 'search';

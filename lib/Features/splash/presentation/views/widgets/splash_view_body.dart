@@ -72,6 +72,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       // );
 
       context.go(kHomePageRoute);
+      // GoRouter.of(context).push(kHomePageRoute);
     },);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:books/Features/home/presentation/view/widgets/home_view_app_bar.dart';
 import 'package:books/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
@@ -9,29 +10,38 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const FeatureListView(),
-        const SizedBox(
-          height: 40,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              HomeViewAppBar(),
+              FeatureListView(),
+              SizedBox(
+                height: 40,
+              ),
+              Padding(padding: EdgeInsets.only(left: 24),child: Text(
+                kBestSeller,
+                style: Styles.textStyle20,
+              ),),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+
+          ),
         ),
-        Padding(
-            padding: kHomeBody,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  kBestSeller,
-                  style: Styles.textStyle20,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                BestSellerListView(),
-              ],
-            ))
+        const SliverToBoxAdapter(
+          child: CustomBestSellerBooksListView(
+            physics: NeverScrollableScrollPhysics(),
+          ),
+        )
       ],
     );
+
+    /*
+    *
+    * */
   }
 }

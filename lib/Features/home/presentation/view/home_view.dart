@@ -1,4 +1,3 @@
-import 'package:books/Features/home/presentation/view/widgets/home_view_app_bar.dart';
 import 'package:books/Features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,21 +6,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
-      CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child:  Column(
-              children: const [
-                HomeViewAppBar(),
-              ],
-            ),
-          ),
-          const SliverToBoxAdapter(child: HomeViewBody(),)
-        ],
-      ),
-
+    return const Scaffold(
+        body: SafeArea(child: HomeViewBody()),
     );
   }
 }

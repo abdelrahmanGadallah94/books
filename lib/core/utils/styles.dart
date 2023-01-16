@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class Styles {
   static const textStyle16 = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
   );
 
   static const textStyle14 = TextStyle(
@@ -22,5 +21,8 @@ class Styles {
       fontSize: 22, fontWeight: FontWeight.bold, fontFamily: kGtSectraFine);
 
   static const textStyle30 = TextStyle(
-      fontSize: 30, fontWeight: FontWeight.bold, fontFamily: kGtSectraFine);
+      fontSize: 30,
+      fontWeight: FontWeight.bold,
+      fontFamily: kGtSectraFine
+  );
 }
