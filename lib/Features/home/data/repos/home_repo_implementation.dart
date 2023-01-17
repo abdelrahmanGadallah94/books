@@ -5,10 +5,10 @@ import 'package:books/core/utils/api_services.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class HomeService implements HomeRepo {
+class HomeRepoImplementation implements HomeRepo {
   final ApiService api;
 
-  HomeService(this.api);
+  HomeRepoImplementation(this.api);
   @override
   Future<Either<Failure, List<BooksModel>>> fetchNewestBooks() async {
 
