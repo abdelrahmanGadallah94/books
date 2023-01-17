@@ -17,7 +17,7 @@ class BookDetailsSection1 extends StatelessWidget {
               left: size.width * .2, right: size.width * .2, top: 20),
           child: const SizedBox(
             height: 260,
-            child: CustomBookItem(),
+            child: CustomBookItem(imageUrl: ""),
           ),
         ),
         const SizedBox(

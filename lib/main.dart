@@ -1,4 +1,5 @@
 import 'package:books/Features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
+import 'package:books/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,11 +20,10 @@ class BooksApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => FeaturedBookCubit(
-            getIt.get<HomeRepoImplementation>()
-        ),),
+        BlocProvider(create: (context) => FeaturedBookCubit(getIt.get<HomeRepoImplementation>())..fetchFeaturedBooks()
+          ,),
         BlocProvider(
-          create: (context) => FeaturedBookCubit(getIt.get<HomeRepoImplementation>()),
+          create: (context) => NewestBooksCubit(getIt.get<HomeRepoImplementation>())..fetchNewestBooks(),
         ),
 
       ],

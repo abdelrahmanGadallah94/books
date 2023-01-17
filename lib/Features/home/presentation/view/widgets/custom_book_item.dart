@@ -1,22 +1,22 @@
-import 'package:books/core/utils/assets.dart';
+import 'package:books/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CustomBookItem extends StatelessWidget {
-  const CustomBookItem({Key? key}) : super(key: key);
+  final String imageUrl;
+  const CustomBookItem({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7/4,
-      child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        decoration:  BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(16),
-          image: const DecorationImage(
-            fit: BoxFit.cover,
-              image: AssetImage(AppAssets.featureImage),
-          )
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: AspectRatio(
+        aspectRatio: 2.7/4,
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          placeholder: (context, url) => const CustomCircularProgressIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+          imageUrl: imageUrl,
         ),
       ),
     );

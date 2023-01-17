@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:books/Features/home/data/models/books_model/BooksModel.dart';
+import 'package:books/Features/home/data/models/books_model/book_model.dart';
 import 'package:books/Features/home/data/repos/home_repo.dart';
 import 'package:books/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';

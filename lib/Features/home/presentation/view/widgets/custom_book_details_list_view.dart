@@ -11,7 +11,7 @@ class CustomBookDetailsListView extends StatelessWidget {
       itemCount: 6,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return const CustomBookItem();
+        return const CustomBookItem(imageUrl: "",);
       },
     );
   }

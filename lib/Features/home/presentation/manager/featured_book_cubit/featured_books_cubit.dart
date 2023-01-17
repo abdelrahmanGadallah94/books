@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:books/Features/home/data/models/books_model/BooksModel.dart';
 import 'package:books/Features/home/data/repos/home_repo.dart';
 import 'package:books/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import '../../../data/models/books_model/book_model.dart';
 part 'featured_books_state.dart';
 
 class FeaturedBookCubit extends Cubit<FeaturedBookState> {
