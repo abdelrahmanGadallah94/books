@@ -23,3 +23,4 @@ const String  kBookDetailsPageRoute = '/bookDetailView';
 const String  kSearchPageRoute = '/searchView';
 
 const String  kHintTextSearch = 'search';
+
