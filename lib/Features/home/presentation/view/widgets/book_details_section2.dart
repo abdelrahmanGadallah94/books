@@ -7,20 +7,17 @@ class BookDetailsSection2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(left: 30),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Text(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+        Text(
           "You can also like",
           style: Styles.textStyle16,
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
-        SizedBox(
-            height: size.height * .16,
-            child: const CustomBookDetailsListView()),
+        CustomBookDetailsListView(),
       ]),
     );
   }

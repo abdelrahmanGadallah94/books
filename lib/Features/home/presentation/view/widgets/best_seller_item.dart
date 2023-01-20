@@ -1,36 +1,37 @@
+import 'package:books/Features/home/data/models/books_model/book_model.dart';
 import 'package:books/constants.dart';
-import 'package:books/core/utils/assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'best_seller_details.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({Key? key}) : super(key: key);
+class NewestBooksItem extends StatelessWidget {
+  final BooksModel booksModel;
+  const NewestBooksItem({Key? key, required this.booksModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140,
+    return Container(
+      height: 120,
+      margin: const EdgeInsets.only(bottom: 15),
       child: GestureDetector(
         onTap: (){
-          GoRouter.of(context).push(kBookDetailsPageRoute);
+          GoRouter.of(context).push(kBookDetailsPageRoute,extra: booksModel);
         },
         child: Row(
           children: [
             AspectRatio(
               aspectRatio: 2.7 / 4,
-              child: Container(
-                margin: const EdgeInsets.only(right: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: const DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(AppAssets.featureImage),
-                    )),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: booksModel.volumeInfo.imageLinks?.thumbnail ?? '',
+                ),
               ),
             ),
             const SizedBox(width: 15,),
-            const BestSellerDetails()
+            BestSellerDetails(books: booksModel)
           ],
         ),
       ),

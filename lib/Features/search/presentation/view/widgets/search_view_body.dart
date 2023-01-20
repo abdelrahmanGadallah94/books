@@ -12,7 +12,7 @@ class SearchViewBody extends StatelessWidget {
         children: const [
           CustomTextField(),
           SizedBox(height: 20,),
-          Expanded(child: CustomBestSellerBooksListView())
+          Expanded(child: CustomNewestBooksListView())
         ],
       ),
     );
